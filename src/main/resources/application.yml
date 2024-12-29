@@ -1,0 +1,28 @@
+
+spring:
+  application:
+    name: spring-keycloak
+
+  # important for role based authentication
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${app.keycloak.serverUrl}/realms/${app.keycloak.realm}
+
+#server:
+#  port: 6700
+#  servlet:
+#    context-path: /auth
+app:
+  keycloak:
+    admin:
+      clientId: admin-cli
+      clientSecret: lWv3gjyBTdyq5wGXdwf3rtqqcjmttkdT
+    realm: pk
+    serverUrl: http://localhost:9082
+
+
+logging:
+  level:
+    org.springframework.security: DEBUG
